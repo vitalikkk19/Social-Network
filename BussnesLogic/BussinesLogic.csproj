@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4AFBC490-C59D-4E84-95E8-7218ED831B4F}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BussnesLogic</RootNamespace>
+    <AssemblyName>BussnesLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concrete\MongoUser.cs" />
+    <Compile Include="Concrete\NeoUser.cs" />
+    <Compile Include="Interfaces\IMongoUser.cs" />
+    <Compile Include="Interfaces\INeoUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL.MongoDB\DAL.MongoDB.csproj">
+      <Project>{b9950250-f060-4391-a910-9409fcd5154b}</Project>
+      <Name>DAL.MongoDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.Neo4j\DAL.Neo4j.csproj">
+      <Project>{b344c696-dbe5-48c3-b6d6-3ce1aa6096b8}</Project>
+      <Name>DAL.Neo4j</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO.MongoDB\DTO.MongoDB.csproj">
+      <Project>{c1c6c2f7-c103-4abb-ac7a-c7d596e06745}</Project>
+      <Name>DTO.MongoDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO.Neo4j\DTO.Neo4j.csproj">
+      <Project>{3a468db0-e40a-480e-93db-90dd3b6ec3cb}</Project>
+      <Name>DTO.Neo4j</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Social-Network\Social-Network.csproj">
+      <Project>{0bed1950-2163-4038-9c9c-27f801c51dee}</Project>
+      <Name>Social-Network</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
